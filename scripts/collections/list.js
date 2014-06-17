@@ -2,12 +2,16 @@
 
 define([
 	'backbone',
+	'storage',
 	'models/task'
-], function(Backbone, Task) {
+], function(Backbone, Storage, Task) {
 	'use strict';
 
-	return Backbone.Collection.extend({
-		model: Task
+	var List = Backbone.Collection.extend({
+		model: Task,
 
+		localStorage: new Storage('todoster')
 	});
+
+	return new List();
 });

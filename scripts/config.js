@@ -10,6 +10,7 @@ require.config({
 		underscore: 'libs/underscore',
 		text: 'libs/text',
 		backbone: 'libs/backbone',
+		storage: 'libs/localStorage'
 	},
 
 	shim: {
