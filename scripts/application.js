@@ -1,16 +1,13 @@
-/* global define, TODO */
+/* global define */
 
-window.TODO = window.TODO || {};
-
-define(function(require) {
+define([
+	'backbone',
+	'collections/list',
+	'views/todoster',
+	'routers/router'
+], function(Backbone, List, View, Router) {
 	'use strict';
 
-	var Backbone = require('backbone');
-
-	TODO.Router = require('routers');
-
-	var controller = new TODO.Router();
-
-
+	new Router();
 	Backbone.history.start();
 });

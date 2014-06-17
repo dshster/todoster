@@ -8,6 +8,7 @@ require.config({
 	paths: {
 		jquery: 'libs/jquery',
 		underscore: 'libs/underscore',
+		text: 'libs/text',
 		backbone: 'libs/backbone',
 	},
 
