@@ -19,7 +19,10 @@ define([
 			}
 		},
 
-		toggle: function() {
+		toggleDone: function() {
+			this.save({
+				done: !this.get('done')
+			});
 		}
 	});
 });

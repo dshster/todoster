@@ -1,3 +1,5 @@
-<div>
-	<a href="#"><span>task</span></a>
+<div class="todo__item">
+	<input class="todo__input todo__input--done" type="checkbox" <%= done ? checked="checked" : ""%>>
+	<span><%= caption %></span>
+	<em class="todo_date"><%= date %></em>
 </div>

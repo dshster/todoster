@@ -8,9 +8,22 @@ define([
 	'use strict';
 
 	return Backbone.View.extend({
-		tagName: 'li.todo__item',
+		tagName: 'li',
+		template: _.template(tplTask),
+
+		events: {
+			'change .todo__input--done': 'done'
+		},
 
 		initialize: function() {},
-		render: function() {}
+
+		done: function() {
+			this.model.toggleDone();
+		},
+
+		build: function() {
+			this.$el.html(this.template(this.model.toJSON()));
+			return this;
+		}
 	});
 });
