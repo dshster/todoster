@@ -1,0 +1,13 @@
+{
+	"styles": {
+		"application": "styles/application.styl",
+		"watch": [
+			"styles/*.styl",
+			"styles/**/*.styl"
+		],
+		"compile": {
+			"name": "todoster-styles.min.css",
+			"path": "styles/compile/"
+		}
+	}
+}

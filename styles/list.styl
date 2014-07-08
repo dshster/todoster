@@ -1,0 +1,36 @@
+.todoster
+	&__list
+		position: absolute;
+		width: 100%;
+		top: 90px;
+		left: 0;
+		bottom: 100px;
+		overflow: auto;
+		overflow-y: scroll;
+
+.list
+	&__item
+		position: relative;
+		width: 100%;
+		margin: 0 0 20px;
+
+		&_body, &_date
+			margin: 0 50px;
+
+		&_done
+			float: left;
+			margin: 0 -100% 0 0;
+			&:checked + .list__item_body
+				text-decoration: line-through;
+
+		&_controls
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 50px;
+
+		.controls
+			display: block;
+
+			&--delete
+				display: block;
