@@ -1,0 +1,104 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+*/
+$checkbox--checked_x = 0px;
+$checkbox--checked_y = 36px;
+$checkbox--checked_offset_x = 0px;
+$checkbox--checked_offset_y = -36px;
+$checkbox--checked_width = 20px;
+$checkbox--checked_height = 20px;
+$checkbox--checked_total_width = 92px;
+$checkbox--checked_total_height = 56px;
+$checkbox--checked_image = '../images/icons-set.png';
+$checkbox--checked = 0px 36px 0px -36px 20px 20px 92px 56px '../images/icons-set.png';
+$checkbox--hover_x = 30px;
+$checkbox--hover_y = 36px;
+$checkbox--hover_offset_x = -30px;
+$checkbox--hover_offset_y = -36px;
+$checkbox--hover_width = 20px;
+$checkbox--hover_height = 20px;
+$checkbox--hover_total_width = 92px;
+$checkbox--hover_total_height = 56px;
+$checkbox--hover_image = '../images/icons-set.png';
+$checkbox--hover = 30px 36px -30px -36px 20px 20px 92px 56px '../images/icons-set.png';
+$checkbox_x = 72px;
+$checkbox_y = 0px;
+$checkbox_offset_x = -72px;
+$checkbox_offset_y = 0px;
+$checkbox_width = 20px;
+$checkbox_height = 20px;
+$checkbox_total_width = 92px;
+$checkbox_total_height = 56px;
+$checkbox_image = '../images/icons-set.png';
+$checkbox = 72px 0px -72px 0px 20px 20px 92px 56px '../images/icons-set.png';
+$clock_x = 72px;
+$clock_y = 30px;
+$clock_offset_x = -72px;
+$clock_offset_y = -30px;
+$clock_width = 15px;
+$clock_height = 19px;
+$clock_total_width = 92px;
+$clock_total_height = 56px;
+$clock_image = '../images/icons-set.png';
+$clock = 72px 30px -72px -30px 15px 19px 92px 56px '../images/icons-set.png';
+$delete--hover_x = 0px;
+$delete--hover_y = 0px;
+$delete--hover_offset_x = 0px;
+$delete--hover_offset_y = 0px;
+$delete--hover_width = 26px;
+$delete--hover_height = 26px;
+$delete--hover_total_width = 92px;
+$delete--hover_total_height = 56px;
+$delete--hover_image = '../images/icons-set.png';
+$delete--hover = 0px 0px 0px 0px 26px 26px 92px 56px '../images/icons-set.png';
+$delete_x = 36px;
+$delete_y = 0px;
+$delete_offset_x = -36px;
+$delete_offset_y = 0px;
+$delete_width = 26px;
+$delete_height = 26px;
+$delete_total_width = 92px;
+$delete_total_height = 56px;
+$delete_image = '../images/icons-set.png';
+$delete = 36px 0px -36px 0px 26px 26px 92px 56px '../images/icons-set.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}

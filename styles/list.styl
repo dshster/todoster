@@ -14,14 +14,49 @@
 		width: 100%;
 		margin: 0 0 20px;
 
-		&_body, &_date
-			margin: 0 50px;
+		left-margin = 30px;
+		right-margin = 50px;
+
+		&_body
+			margin: 0 right-margin 0 left-margin;
+			font-family: font--regular;
+			line-height: 20px;
+			color: regular;
+			font-size: 16px;
+
+		&_date
+			position: relative;
+			margin: 10px 0 0 left-margin;
+			font-family: font--small;
+			font-size: 14px;
+			line-height: 19px;
+			&:before
+				display: block;
+				float: left;
+				margin: 0 10px 0 0;
+				content: '';
+				width: 15px;
+				height: 18px;
+				sprite($clock);
 
 		&_done
+			display: none;
+
+		&_label
 			float: left;
+			width: 20px;
+			height: 20px;
+			text-indent: -1000em;
 			margin: 0 -100% 0 0;
-			&:checked + .list__item_body
-				text-decoration: line-through;
+			cursor: pointer;
+			sprite($checkbox);
+			&:hover
+				sprite($checkbox--hover);
+		&_done:checked + &_label
+			sprite($checkbox--checked);
+
+		&_done:checked ~ .list__item_body
+			text-decoration: line-through;
 
 		&_controls
 			position: absolute;
@@ -31,6 +66,15 @@
 
 		.controls
 			display: block;
+			border: none;
+			cursor: pointer;
+			text-indent: -1000em;
+			background-color: transparent;
 
 			&--delete
+				width: 26px;
+				height: 26px;
 				display: block;
+				sprite($delete);
+				&:hover
+					sprite($delete--hover);

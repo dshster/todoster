@@ -1,6 +1,9 @@
 {
 	"styles": {
+		"dir": "styles",
 		"application": "styles/application.styl",
+		"sprites": "styles/sprites",
+		"images": "styles/images",
 		"watch": [
 			"styles/*.styl",
 			"styles/**/*.styl"
