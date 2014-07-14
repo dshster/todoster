@@ -5,7 +5,8 @@ define([
 	'backbone',
 	'collections/list',
 	'views/task',
-	'constants'
+	'constants',
+	'rudate'
 ], function(_, Backbone, List, TaskView, Constants) {
 	'use strict';
 

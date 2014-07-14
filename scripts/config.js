@@ -13,13 +13,14 @@ require.config({
 		storage: 'libs/localStorage',
 		moment: 'libs/moment/moment',
 		rumoment: 'libs/moment/ru',
+		rudate: 'libs/rudate'
 	},
 
 	shim: {
 		backbone: {
 			exports: 'backbone'
 		},
-		rumoment: ['moment'],
+		rumoment: ['moment']
 	},
 
 	deps: ['bootstrap']
