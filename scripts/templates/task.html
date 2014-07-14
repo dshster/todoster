@@ -1,5 +1,9 @@
-<div class="todo__item">
-	<input class="todo__input todo__input--done" type="checkbox" <%= done ? checked="checked" : ""%>>
-	<span><%= caption %></span>
-	<em class="todo_date"><%= date %></em>
+<div class="list__item">
+	<input class="list__item_done" type="checkbox" id="<%= 'undefined' === typeof(id) ? 'new' : id%>" <%= done ? checked="checked" : ""%>>
+	<label class="list__item_label" for="<%= 'undefined' === typeof(id) ? 'new' : id %>">Выполнено</label>
+	<div class="list__item_body"><%= caption %></div>
+	<div class="list__item_date"><%= date %></div>
+	<div class="list__item_controls">
+		<button class="controls controls--delete" type="button">&times;</button>
+	</div>
 </div>

@@ -1,7 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="styles/compile/todoster-styles.min.css">
 		<script data-main="scripts/config.js" src="scripts/libs/require.js"></script>
 
 		<title>TODO Backbonejs practice application</title>
@@ -9,11 +11,14 @@
 
 	<body>
 		<div class="todoster">
-			<div class="todo-heading">
-				<input class="input input__create" type="text" autofocus="autofocus">
-			</div>
+			<input class="todoster__input"
+				type="text"
+				autofocus="autofocus"
+				maxlength="200"
+				autocomplete="off"
+				placeholder="Добавить задачу...">
 
-			<div class="todo__list"></div>
+			<div class="todoster__list"></div>
 		</div>
 	</body>
 </html>

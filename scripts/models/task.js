@@ -23,6 +23,10 @@ define([
 			this.save({
 				done: !this.get('done')
 			});
+		},
+
+		delete: function() {
+			this.destroy();
 		}
 	});
 });

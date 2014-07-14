@@ -9,17 +9,17 @@ define([
 ], function(_, Backbone, List, TaskView, Constants) {
 	'use strict';
 
-	var $list = $('.todo__list');
+	var $list = $('.todoster__list');
 
 	return Backbone.View.extend({
 		el: '.todoster',
 
 		events: {
-			'keypress .input__create': 'create',
+			'keypress .todoster__input': 'create',
 		},
 
 		initialize: function() {
-			this.$input = $('.input__create', this.$el);
+			this.$input = $('.todoster__input', this.$el);
 
 			this.listenTo(List, 'add', this.createEvent);
 			this.listenTo(List, 'all', this.buildEvent);
@@ -31,13 +31,13 @@ define([
 		},
 
 		buildEvent: function(event, parameters) {
-console.log(
-	event, parameters
-);
+// console.log(
+// 	event, parameters
+// );
 
 		},
 
-		createEvent: function(task){
+		createEvent: function(task) {
 			var view = new TaskView({ model: task });
 
 			$list.append(view.build().el);

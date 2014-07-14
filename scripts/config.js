@@ -10,13 +10,16 @@ require.config({
 		underscore: 'libs/underscore',
 		text: 'libs/text',
 		backbone: 'libs/backbone',
-		storage: 'libs/localStorage'
+		storage: 'libs/localStorage',
+		moment: 'libs/moment/moment',
+		rumoment: 'libs/moment/ru',
 	},
 
 	shim: {
 		backbone: {
 			exports: 'backbone'
-		}
+		},
+		rumoment: ['moment'],
 	},
 
 	deps: ['bootstrap']
