@@ -13,7 +13,7 @@ require.config({
 		storage: 'libs/localStorage',
 		moment: 'libs/moment/moment',
 		rumoment: 'libs/moment/ru',
-		rudate: 'libs/rudate'
+		rudate: 'libs/rudate/process'
 	},
 
 	shim: {
@@ -23,5 +23,6 @@ require.config({
 		rumoment: ['moment']
 	},
 
-	deps: ['bootstrap']
+	//deps: ['bootstrap']
+	deps: ['rudate']
 });

@@ -8,12 +8,20 @@ define(function(require) {
 	var body = 'Послезавтра в 11 придти в офис'.toLowerCase(),
 	    date = moment();
 
+    var process = {
+    	numerals: {
+    		template: ''
+    	}
+    };
+
 // после обеда
 // до обеда
 // ночи
 // утра
 // pm = 12 || 0
 //
+	debugger;
+	/*
 	var pm = 12;
 
 	    // переделать под регулярки в ()
@@ -69,5 +77,6 @@ console.log(
 	body,
 	date.format('lll')
 );
+	*/
 
 });
