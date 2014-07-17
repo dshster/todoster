@@ -17,6 +17,7 @@ define(function() {
 
 	return function(body, date) {
 		var matches = body.match(expression);
+
 		if (matches) {
 			dayshift.forEach(function(pairs) {
 				var pair = pairs.split('|');
