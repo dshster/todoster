@@ -5,13 +5,15 @@ define(function(require) {
 
 	require('moment');
 
-	var body = 'Завтра в десять ноль пять утра придти в офис'.toLowerCase(),
+	var body = 'Завтра в десять ноль пять придти в офис'.toLowerCase(),
 	    date = moment();
 
-	var numerals = require('libs/rudate/numerals');
+	body = require('libs/rudate/numerals')(body) || body;
 
-	body = numerals(body) || body;
+console.log(
+	body,
+	require('libs/rudate/time')(body, date).format('llll')
+);
 
-console.log(body);
 
 });
