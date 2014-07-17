@@ -9,10 +9,11 @@ define(function(require) {
 	    date = moment();
 
 	body = require('libs/rudate/numerals')(body) || body;
+	date = require('libs/rudate/time')(body, date) || date;
+	date = require('libs/rudate/dayshift')(body, date) || date;
 
 console.log(
-	body,
-	require('libs/rudate/time')(body, date).format('llll')
+	body, date.format('llll')
 );
 
 
