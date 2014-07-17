@@ -28,8 +28,9 @@ define(function() {
 	return function(body, date) {
 		var matches = body.match(expression);
 
-		if (1 === matches.length) {
+		if (matches && 1 === matches.length) {
 			var digits = matches.toString().match(/\d{1,2}/g);
+
 			if (3 === digits.length) {
 				// десять ноль пять, по-военному
 				date.hour(digits[0]);
