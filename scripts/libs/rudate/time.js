@@ -1,7 +1,9 @@
 /* global define */
 
-define(function() {
+define(function(require) {
 	'use strict';
+
+	var ampm = require('libs/rudate/ampm');
 
 	var times = [
 		'\\d{1,2} \\d{2}',
@@ -41,6 +43,11 @@ define(function() {
 			} else {
 				date.hour(digits.toString());
 				date.minute(0);
+			}
+
+			// Если дата до полудня, а в условии после - прибавляем 12 часов
+			if ('pm' === ampm(body, date) && 'am' === date.format('a')) {
+				date.hour(date.hour() + 12);
 			}
 		}
 
