@@ -24,14 +24,13 @@ define(function() {
 				direction = 1;
 			}
 
-			if (-1 !== match[0].indexOf('дней')) {
-			} else if (-1 !== match[0].indexOf('лет') || -1 !== match[0].indexOf('год')) {
+			if (-1 !== match[0].indexOf('лет') || -1 !== match[0].indexOf('год')) {
 				data.add(numeric * direction, 'y');
 			} else if (-1 !== match[0].indexOf('нед')) {
 				data.add(numeric * direction, 'w');
 			} else if (-1 !== match[0].indexOf('мес')) {
 				data.add(numeric * direction, 'M');
-			} else if (-1 !== match[0].indexOf('день') || -1 !== match[0].indexOf('дня')) {
+			} else if (-1 !== match[0].indexOf('дней') || -1 !== match[0].indexOf('день') || -1 !== match[0].indexOf('дня')) {
 				data.add(numeric * direction, 'd');
 			} else if (-1 !== match[0].indexOf('час')) {
 				data.add(numeric * direction, 'h');
