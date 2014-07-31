@@ -26,17 +26,17 @@ define(function() {
 
 			if (-1 !== match[0].indexOf('дней')) {
 			} else if (-1 !== match[0].indexOf('лет') || -1 !== match[0].indexOf('год')) {
-				data.add('y', numeric * direction);
+				data.add(numeric * direction, 'y');
 			} else if (-1 !== match[0].indexOf('нед')) {
-				data.add('w', numeric * direction);
+				data.add(numeric * direction, 'w');
 			} else if (-1 !== match[0].indexOf('мес')) {
-				data.add('M', numeric * direction);
+				data.add(numeric * direction, 'M');
 			} else if (-1 !== match[0].indexOf('день') || -1 !== match[0].indexOf('дня')) {
-				data.add('d', numeric * direction);
+				data.add(numeric * direction, 'd');
 			} else if (-1 !== match[0].indexOf('час')) {
-				data.add('h', numeric * direction);
+				data.add(numeric * direction, 'h');
 			} else if (-1 !== match[0].indexOf('мин')) {
-				data.add('m', numeric * direction);
+				data.add(numeric * direction, 'm');
 			}
 		}
 	};

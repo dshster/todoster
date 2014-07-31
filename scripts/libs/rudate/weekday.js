@@ -29,9 +29,9 @@ define(function() {
 					var weekday = pair[1];
 					// если запрашиваемый день раньше текущего - прибавляем неделю
 					if (todayofweek >= weekday) {
-						date.day(parseInt(weekday, 10) + 7);
+						date.isoWeekday(parseInt(weekday, 10) + 7);
 					} else {
-						date.day(parseInt(weekday, 10));
+						date.isoWeekday(parseInt(weekday, 10));
 					}
 				}
 			});

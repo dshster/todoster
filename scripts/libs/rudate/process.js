@@ -5,7 +5,7 @@ define(function(require) {
 
 	require('moment');
 
-	var body = 'Через 3 дня в 3 часа дня у Маши день рождения'.toLowerCase(),
+	var body = 'В субботу в 19 часов перейти к календарю'.toLowerCase(),
 	    date = moment();
 
 	body = require('libs/rudate/numerals')(body) || body;
