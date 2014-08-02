@@ -1,4 +1,5 @@
 {
+	"browser": true,
 	"globalstrict": false,
-	"smarttabs": true,
+	"smarttabs": true
 }

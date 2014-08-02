@@ -1,22 +1,23 @@
 /* global define, $ */
 
 define([
-	'underscore',
+	'jquery',
 	'backbone',
 	'collections/list',
 	'views/task',
 	'constants',
 	'rudate'
-], function(_, Backbone, List, TaskView, Constants) {
+], function($, Backbone, List, TaskView, Constants, Rudate) {
 	'use strict';
 
-	var $list = $('.todoster__list');
+	var $list = $('.todoster__list'),
+	    enterTimeout;
 
 	return Backbone.View.extend({
 		el: '.todoster',
 
 		events: {
-			'keypress .todoster__input': 'create',
+			'keypress .todoster__input': 'enter'
 		},
 
 		initialize: function() {
@@ -28,30 +29,33 @@ define([
 			List.fetch();
 		},
 
-		render: function() {
-		},
-
-		buildEvent: function(event, parameters) {
-// console.log(
-// 	event, parameters
-// );
-
-		},
-
 		createEvent: function(task) {
 			var view = new TaskView({ model: task });
 
 			$list.append(view.build().el);
 		},
 
-		create: function(event) {
+		enter: function(event) {
+			var $input = this.$input;
+
 			if (event.keyCode === Constants.ENTER_KEY) {
 				List.create({
-					caption: this.$input.val(),
+					caption: $input.val(),
 					date: new Date()
 				});
 
-				this.$input.val('');
+				$input.val('');
+			} else {
+				clearTimeout(enterTimeout);
+
+				enterTimeout = window.setTimeout(function() {
+					var date = Rudate($input.val());
+
+console.log(
+	date.format('llll'), $input.val()
+);
+
+				}, 500);
 			}
 		}
 	});

@@ -1,7 +1,5 @@
 /* global require */
 
-'use strict';
-
 require.config({
 	baseUrl: 'scripts',
 
@@ -13,16 +11,17 @@ require.config({
 		storage: 'libs/localStorage',
 		moment: 'libs/moment/moment',
 		rumoment: 'libs/moment/ru',
-		rudate: 'libs/rudate/process'
+		rudate: 'libs/rudate/process',
+		calendar: 'libs/calendar/ion.calendar'
 	},
 
 	shim: {
 		backbone: {
 			exports: 'backbone'
 		},
-		rumoment: ['moment']
+		rumoment: ['moment'],
+		calendar: ['jquery']
 	},
 
-	//deps: ['bootstrap']
-	deps: ['rudate']
+	deps: ['bootstrap']
 });
