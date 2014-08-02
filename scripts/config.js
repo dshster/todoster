@@ -12,7 +12,7 @@ require.config({
 		moment: 'libs/moment/moment',
 		rumoment: 'libs/moment/ru',
 		rudate: 'libs/rudate/process',
-		calendar: 'libs/calendar/ion.calendar'
+		calendar: 'libs/calendar/jquery.datetimepicker'
 	},
 
 	shim: {

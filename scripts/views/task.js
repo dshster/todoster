@@ -31,7 +31,6 @@ define([
 		},
 
 		build: function() {
-			this.model.set('date', moment(this.model.get('date'), moment.ISO_8601).fromNow());
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
 		}

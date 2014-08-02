@@ -6,12 +6,14 @@ define([
 	'collections/list',
 	'views/task',
 	'constants',
-	'rudate'
-], function($, Backbone, List, TaskView, Constants, Rudate) {
+	'rudate',
+	'calendar'
+], function($, Backbone, List, TaskView, Constants, rudate) {
 	'use strict';
 
 	var $list = $('.todoster__list'),
-	    enterTimeout;
+	     dateformat = 'DD.MM.YYYY HH:mm',
+	     enterTimeout;
 
 	return Backbone.View.extend({
 		el: '.todoster',
@@ -22,6 +24,14 @@ define([
 
 		initialize: function() {
 			this.$input = $('.todoster__input', this.$el);
+			this.$calendar = $('.todoster__calendar', this.$el);
+			this.$calendar.val(moment().format(dateformat));
+			this.$calendar.datetimepicker({
+				lang: 'ru',
+				format: 'd.m.Y H:i',
+				timepicker: true,
+				//startDate: moment().format(dateformat)
+			});
 
 			this.listenTo(List, 'add', this.createEvent);
 			this.listenTo(List, 'all', this.buildEvent);
@@ -36,25 +46,24 @@ define([
 		},
 
 		enter: function(event) {
-			var $input = this.$input;
+			var controller = this;
 
 			if (event.keyCode === Constants.ENTER_KEY) {
 				List.create({
-					caption: $input.val(),
-					date: new Date()
+					caption: controller.$input.val(),
+					date: moment(controller.$calendar.val(), dateformat)
 				});
 
-				$input.val('');
+				controller.$input.val('');
 			} else {
 				clearTimeout(enterTimeout);
 
 				enterTimeout = window.setTimeout(function() {
-					var date = Rudate($input.val());
+					var date = rudate(controller.$input.val());
 
-console.log(
-	date.format('llll'), $input.val()
-);
-
+					if (date) {
+						controller.$calendar.val(date.format(dateformat));
+					}
 				}, 500);
 			}
 		}
