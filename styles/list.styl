@@ -1,80 +1,80 @@
 .todoster
 	&__list
-		position: absolute;
-		width: 100%;
-		top: 90px;
-		left: 0;
-		bottom: 100px;
-		overflow: auto;
-		overflow-y: scroll;
+		position: absolute
+		top: 120px
+		right 20px
+		left: 20px
+		bottom: 100px
+		overflow: auto
+		overflow-y: scroll
 
 .list
 	&__item
-		position: relative;
-		width: 100%;
-		margin: 0 0 20px;
+		position: relative
+		width: 100%
+		margin: 0 0 20px
 
-		left-margin = 30px;
-		right-margin = 50px;
+		left-margin = 30px
+		right-margin = 50px
 
 		&_body
-			margin: 0 right-margin 0 left-margin;
-			font-family: font--regular;
-			line-height: 20px;
-			color: regular;
-			font-size: 16px;
+			margin: 0 right-margin 0 left-margin
+			font-family: font--regular
+			line-height: 20px
+			color: regular
+			font-size: 16px
 
 		&_date
-			position: relative;
-			margin: 10px 0 0 left-margin;
-			font-family: font--small;
-			font-size: 14px;
-			line-height: 19px;
+			position: relative
+			margin: 10px 0 0 left-margin
+			font-family: font--small
+			font-size: 14px
+			line-height: 19px
 			&:before
-				display: block;
-				float: left;
-				margin: 0 10px 0 0;
-				content: '';
-				width: 15px;
-				height: 18px;
-				sprite($clock);
+				display: block
+				float: left
+				margin: 0 10px 0 0
+				content: ''
+				width: 15px
+				height: 18px
+				sprite($clock)
 
 		&_done
-			display: none;
+			display: none
 
 		&_label
-			float: left;
-			width: 20px;
-			height: 20px;
-			text-indent: -1000em;
-			margin: 0 -100% 0 0;
-			cursor: pointer;
-			sprite($checkbox);
+			float: left
+			width: 20px
+			height: 20px
+			text-indent: -1000em
+			margin: 0 -100% 0 0
+			cursor: pointer
+			sprite($checkbox)
 			&:hover
-				sprite($checkbox--hover);
+				sprite($checkbox--hover)
 		&_done:checked + &_label
-			sprite($checkbox--checked);
+			sprite($checkbox--checked)
 
 		&_done:checked ~ .list__item_body
-			text-decoration: line-through;
+			text-decoration: line-through
 
 		&_controls
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 50px;
+			position: absolute
+			top: 0
+			right: 0
+			width: 50px
 
 		.controls
-			display: block;
-			border: none;
-			cursor: pointer;
-			text-indent: -1000em;
-			background-color: transparent;
+			display: block
+			border: none
+			cursor: pointer
+			text-indent: -1000em
+			background-color: transparent
 
 			&--delete
-				width: 26px;
-				height: 26px;
-				display: block;
-				sprite($delete);
+				width: 26px
+				height: 26px
+				display: block
+				sprite($delete)
 				&:hover
-					sprite($delete--hover);
+					sprite($delete--hover)

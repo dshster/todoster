@@ -14,14 +14,17 @@
 
 	<body>
 		<div class="todoster">
-			<input class="todoster__input"
-				type="text"
-				autofocus="autofocus"
-				maxlength="200"
-				autocomplete="off"
-				placeholder="Добавить задачу...">
+			<form class="form" novalidate="novalidate" method="POST">
+				<input class="input input--task"
+					type="text"
+					autofocus="autofocus"
+					maxlength="200"
+					autocomplete="off"
+					placeholder="Добавить задачу...">
 
-			<input class="todoster__calendar" type="text">
+				<input class="input input--calendar" readonly="readonly" type="text">
+				<button class="button button--submit" type="submit">Отправить</button>
+			</form>
 			<div class="todoster__list"></div>
 		</div>
 	</body>

@@ -19,18 +19,31 @@ define([
 		el: '.todoster',
 
 		events: {
-			'keypress .todoster__input': 'enter'
+			'keypress .input--task': 'enter',
+			'paste .input--task': 'enter',
+			'submit .form': 'submit'
 		},
 
 		initialize: function() {
-			this.$input = $('.todoster__input', this.$el);
-			this.$calendar = $('.todoster__calendar', this.$el);
+			this.$input = $('.input--task', this.$el);
+			this.$calendar = $('.input--calendar', this.$el);
 			this.$calendar.val(moment().format(dateformat));
 			this.$calendar.datetimepicker({
 				lang: 'ru',
 				format: 'd.m.Y H:i',
 				timepicker: true,
-				//startDate: moment().format(dateformat)
+				startDate: moment().format(dateformat)
+			});
+			this.$calendar.on('change', function(event, flag) {
+				var $calendar = $(this);
+
+				if ('autodate' == flag) {
+					$calendar.addClass('input--flash');
+
+					setTimeout(function() {
+						$calendar.removeClass('input--flash');
+					}, 50);
+				}
 			});
 
 			this.listenTo(List, 'add', this.createEvent);
@@ -47,25 +60,35 @@ define([
 
 		enter: function(event) {
 			var controller = this;
+			clearTimeout(enterTimeout);
 
-			if (event.keyCode === Constants.ENTER_KEY) {
-				List.create({
-					caption: controller.$input.val(),
-					date: moment(controller.$calendar.val(), dateformat)
-				});
-
-				controller.$input.val('');
-			} else {
-				clearTimeout(enterTimeout);
-
+			if (0 < event.which || 'paste' === event.type) {
 				enterTimeout = window.setTimeout(function() {
 					var date = rudate(controller.$input.val());
 
-					if (date) {
-						controller.$calendar.val(date.format(dateformat));
+					if (60 <= Math.abs(date.diff(moment()))) {
+						controller.$calendar
+							.val(date.format(dateformat))
+							.trigger('change', ['autodate']);
 					}
 				}, 500);
 			}
+		},
+
+		submit: function(event) {
+			var controller = this,
+			    $task = controller.$input;
+
+		    if (0 < $task.val().length) {
+				List.create({
+					caption: $task.val(),
+					date: moment(controller.$calendar.val(), dateformat)
+				});
+				$task.val('');
+				controller.$calendar.val(moment().format(dateformat));
+		    }
+
+			event.preventDefault();
 		}
 	});
 });
