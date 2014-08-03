@@ -2,7 +2,7 @@
 	<input class="list__item_done" type="checkbox" id="<%= 'undefined' === typeof(id) ? 'new' : id%>" <%= done ? checked="checked" : ""%>>
 	<label class="list__item_label" for="<%= 'undefined' === typeof(id) ? 'new' : id %>" title="Выполнено">Выполнено</label>
 	<div class="list__item_body"><%= caption %></div>
-	<div class="list__item_date"><%= moment(date, moment.ISO_8601).format('llll') %></div>
+	<div class="list__item_date"><%= moment(date, moment.ISO_8601).fromNow() %></div>
 	<div class="list__item_controls">
 		<button class="controls controls--delete" type="button" title="Удалить">&times;</button>
 	</div>

@@ -26,6 +26,7 @@ define([
 
 		initialize: function() {
 			this.$input = $('.input--task', this.$el);
+			this.$input.prop('placeholder', Constants.placeholders[Math.round(Math.random() * Constants.placeholders.length + 1)]);
 			this.$calendar = $('.input--calendar', this.$el);
 			this.$calendar.val(moment().format(dateformat));
 			this.$calendar.datetimepicker({
