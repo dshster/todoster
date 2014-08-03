@@ -3,7 +3,7 @@
 define(function() {
 	'use strict';
 
-	var period = '(дней|лет|нед\\S+|год\\S+|мес\\S+|день|дня|час\\S+|мин\\S+)',
+	var period = '(дней|лет|нед\\S+|год|год\\S+|мес\\S+|день|дня|час\\S+|мин\\S+)',
 	    before = 'назад',
 	    after = 'через',
 	    experiod = new RegExp(period, 'g'),
@@ -14,9 +14,12 @@ define(function() {
 		var matches = body.match(expafter) || body.match(expbefore);
 
 		if (matches) {
-			var match = experiod.exec(matches),
-			    numeric = matches.toString().match(/(\d{1,3})/g).toString(),
+			var periodmatch = matches.toString().substr(matches.toString().search(experiod)),
+			    numeric = matches.toString().match(/(\d{1,3})*/g).filter(function(digit) {
+					return !!digit ? digit : false;
+				}).toString() || 1,
 			    direction = 0;
+
 
 			if (0 <= matches.toString().indexOf(before)) {
 				direction = -1;
@@ -24,17 +27,17 @@ define(function() {
 				direction = 1;
 			}
 
-			if (-1 !== match[0].indexOf('лет') || -1 !== match[0].indexOf('год')) {
+			if (-1 !== periodmatch.indexOf('лет') || -1 !== periodmatch.indexOf('год')) {
 				data.add(numeric * direction, 'y');
-			} else if (-1 !== match[0].indexOf('нед')) {
+			} else if (-1 !== periodmatch.indexOf('нед')) {
 				data.add(numeric * direction, 'w');
-			} else if (-1 !== match[0].indexOf('мес')) {
+			} else if (-1 !== periodmatch.indexOf('мес')) {
 				data.add(numeric * direction, 'M');
-			} else if (-1 !== match[0].indexOf('дней') || -1 !== match[0].indexOf('день') || -1 !== match[0].indexOf('дня')) {
+			} else if (-1 !== periodmatch.indexOf('дней') || -1 !== periodmatch.indexOf('день') || -1 !== periodmatch.indexOf('дня')) {
 				data.add(numeric * direction, 'd');
-			} else if (-1 !== match[0].indexOf('час')) {
+			} else if (-1 !== periodmatch.indexOf('час')) {
 				data.add(numeric * direction, 'h');
-			} else if (-1 !== match[0].indexOf('мин')) {
+			} else if (-1 !== periodmatch.indexOf('мин')) {
 				data.add(numeric * direction, 'm');
 			}
 		}
