@@ -3,7 +3,7 @@
 define(function() {
 	'use strict';
 
-	var ampm = ['дня|pm', 'вечера|pm', 'ночи|am', 'утра|am'],
+	var ampm = ['дня|pm', 'вечера|pm', 'вечером|pm', 'ночи|am', 'утра|am', 'утром|am'],
 	    expression = new RegExp(ampm.map(function(item) {
 			return '(' + item + ')';
 		}).join('|'), 'g');

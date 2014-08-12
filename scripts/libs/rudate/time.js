@@ -45,8 +45,13 @@ define(function(require) {
 			}
 
 			// Если дата до полудня, а в условии после - прибавляем 12 часов
-			// TODO: Если время меньше текущего - прибавляем 12 или 24
 			if ('pm' === ampm(body, date)) {
+				date.hour(date.hour() + 12);
+			}
+		} else if (ampm(body, date)) {
+			if ('am' === ampm(body, date) && 12 <= date.hour()) {
+				date.hour(date.hour() - 12);
+			} else if ('pm' === ampm(body, date) && 12 >= date.hour()) {
 				date.hour(date.hour() + 12);
 			}
 		}
