@@ -33,6 +33,7 @@ define([
 				lang: 'ru',
 				format: 'd.m.Y H:i',
 				timepicker: true,
+				dayOfWeekStart: 1,
 				startDate: moment().format(dateformat)
 			});
 			this.$calendar.on('change', function(event, flag) {
