@@ -1,4 +1,4 @@
-<div class="list__item">
+<div class="list__item<%= 12 >= Math.abs(moment(date).diff(moment(), 'hour')) ? ' list__item--deadline' : '' %>">
 	<input class="list__item_done" type="checkbox" id="<%= 'undefined' === typeof(id) ? 'new' : id%>" <%= done ? checked="checked" : ""%>>
 	<label class="list__item_label" for="<%= 'undefined' === typeof(id) ? 'new' : id %>" title="Выполнено">Выполнено</label>
 	<div class="list__item_body"><%= caption %></div>

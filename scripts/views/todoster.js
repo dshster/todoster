@@ -56,7 +56,7 @@ define([
 		createEvent: function(task) {
 			var view = new TaskView({ model: task });
 
-			$list.append(view.build().el);
+			$list.prepend(view.build().el);
 		},
 
 		enter: function(event) {
